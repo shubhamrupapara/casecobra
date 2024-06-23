@@ -1,4 +1,4 @@
-import { IReviewProps } from "@/types";
+import { IFooterItemsProps, IReviewProps } from "@/types";
 
 export const userImagesArr: string[] = [
   "user-1.png",
@@ -54,11 +54,17 @@ export const phonesImageArr: string[] = [
   "testimonials/6.jpg",
 ];
 
-export const POSSIBLE_ANIMATION_DELAYS = [
+export const POSSIBLE_ANIMATION_DELAYS: string[] = [
   "0s",
   "0.1s",
   "0.2s",
   "0.3s",
   "0.4s",
   "0.5s",
+];
+
+export const footerItemsArr: IFooterItemsProps[] = [
+  { label: "Terms", href: "#" },
+  { label: "Privacy Policy", href: "#" },
+  { label: "Cookie Policy", href: "#" },
 ];

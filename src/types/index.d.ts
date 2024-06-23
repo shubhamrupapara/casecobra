@@ -28,3 +28,8 @@ export interface IReviewColumnProps {
   reviewClassName?: (reviewIndex: number) => string;
   msPerPixel?: number;
 }
+
+export interface IFooterItemsProps {
+  label: string;
+  href: string;
+}
