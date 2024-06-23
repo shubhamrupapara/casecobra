@@ -1,13 +1,7 @@
 import { cn } from "@/lib/utils";
-import React, { ReactNode } from "react";
+import { IMaxWidthWrapperProps } from "@/types";
 
-const MaxWidthWrapper = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: ReactNode;
-}) => {
+const MaxWidthWrapper = ({ className, children }: IMaxWidthWrapperProps) => {
   return (
     <div
       className={cn(

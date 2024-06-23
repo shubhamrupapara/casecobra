@@ -1,5 +1,10 @@
 import { HTMLAttributes } from "react";
 
+export interface IMaxWidthWrapperProps {
+  className?: string;
+  children: ReactNode;
+}
+
 export interface IReviewProps {
   name: string;
   image: string;

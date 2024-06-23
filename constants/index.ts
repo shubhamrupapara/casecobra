@@ -1,5 +1,26 @@
 import { IReviewProps } from "@/types";
 
+export const userImagesArr: string[] = [
+  "user-1.png",
+  "user-2.png",
+  "user-3.png",
+  "user-4.jpg",
+  "user-5.jpg",
+];
+
+export const tagLines1Arr: string[] = [
+  "High Quality Durable Material",
+  "5 Year Print Guarantee",
+  "Modern iPhone Models Supported",
+];
+
+export const tagLines2Arr: string[] = [
+  "High-quality silicone material",
+  "Scratch and fingerprint resistant coating",
+  "Wireless charging compatible",
+  "print warranty",
+];
+
 export const reviewsArr: IReviewProps[] = [
   {
     name: "Jonathan",

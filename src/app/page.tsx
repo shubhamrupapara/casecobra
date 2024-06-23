@@ -5,7 +5,12 @@ import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight, Check, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { reviewsArr } from "../../constants";
+import {
+  reviewsArr,
+  tagLines1Arr,
+  tagLines2Arr,
+  userImagesArr,
+} from "../../constants";
 import { IReviewProps } from "@/types";
 import Reviews from "@/components/Reviews";
 
@@ -13,7 +18,7 @@ export default function Home() {
   return (
     <div className="bg-slate-50 grainy-light">
       <section>
-        <MaxWidthWrapper className="pb-24 pt-10 lg:grid lg:grid-cols-3 sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24">
+        <MaxWidthWrapper className="pb-12 pt-10 lg:grid lg:grid-cols-3 lg:gap-x-0 xl:gap-x-8 lg:pt-24">
           <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
               <div className="absolute w-28 left-0 -top-20 hidden lg:block">
@@ -39,11 +44,7 @@ export default function Home() {
               </p>
               {/* qualities */}
               <ul className="mt-8 space-y-2 text-left font-medium flex flex-col items-center sm:items-start">
-                {[
-                  "High Quality Durable Material",
-                  "5 Year Print Guarantee",
-                  "Modern iPhone Models Supported",
-                ]?.map((item: string, index: number) => (
+                {tagLines1Arr?.map((item: string, index: number) => (
                   <div key={index} className="space-y-2">
                     <li className="flex gap-1.5 items-center text-left">
                       <Check className="h-5 w-5 shrink-0 text-green-600" />
@@ -55,13 +56,7 @@ export default function Home() {
               {/* happy customers */}
               <div className="mt-12 flex flex-col sm:flex-row items-center sm:items-start gap-5">
                 <div className="flex -space-x-4">
-                  {[
-                    "user-1.png",
-                    "user-2.png",
-                    "user-3.png",
-                    "user-4.jpg",
-                    "user-5.jpg",
-                  ]?.map((imageName: string, index: number) => (
+                  {userImagesArr?.map((imageName: string, index: number) => (
                     <Image
                       key={index}
                       src={`/users/${imageName}`}
@@ -91,7 +86,7 @@ export default function Home() {
             </div>
           </div>
           {/* phone image with dog */}
-          <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 mt-32 lg:mx-0 lg:mt-20 h-fit">
+          <div className="col-span-full lg:col-span-1 w-full flex justify-center px-8 sm:px-16 md:px-0 lg:mx-0 mt-24 lg:mt-20 h-fit">
             <div className="relative md:max-w-xl">
               <Image
                 src="/your-image.png"
@@ -177,7 +172,7 @@ export default function Home() {
           </div>
         </MaxWidthWrapper>
         {/* reviews */}
-        <div className="pt-16">
+        <div className="pt-10">
           <Reviews />
         </div>
       </section>
@@ -218,12 +213,7 @@ export default function Home() {
           </div>
           {/* features */}
           <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
-            {[
-              "High-quality silicone material",
-              "Scratch and fingerprint resistant coating",
-              "Wireless charging compatible",
-              "print warranty",
-            ]?.map((item: string, index: number) => (
+            {tagLines2Arr?.map((item: string, index: number) => (
               <li key={index} className="w-fit">
                 <Check className="h-5 w-5 text-green-600 inline mr-1.5" />
                 {item}
