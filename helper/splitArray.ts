@@ -1,4 +1,4 @@
-export function splitArray<T>(array: Array<T>, numParts: number) {
+function splitArray<T>(array: Array<T>, numParts: number) {
   const result: Array<Array<T>> = [];
 
   for (let i = 0; i < numParts; i++) {
@@ -9,3 +9,5 @@ export function splitArray<T>(array: Array<T>, numParts: number) {
   }
   return result;
 }
+
+export default splitArray;

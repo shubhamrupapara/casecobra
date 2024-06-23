@@ -1,11 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
-
-interface IPhoneProps extends HTMLAttributes<HTMLDivElement> {
-  imgSrc: string;
-  dark?: boolean;
-}
+import { IPhoneProps } from "@/types";
 
 const Phone = ({ imgSrc, className, dark = false, ...props }: IPhoneProps) => {
   return (
