@@ -33,3 +33,9 @@ export interface IFooterItemsProps {
   label: string;
   href: string;
 }
+
+export interface IStepsItemsProps {
+  name: string;
+  description: string;
+  url: string;
+}
