@@ -39,3 +39,18 @@ export interface IStepsItemsProps {
   description: string;
   url: string;
 }
+
+export interface ISearchParamsProps {
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+}
+
+export interface IDesignConfiguratorProps {
+  configId: string;
+  imageUrl: string;
+  imageDimensions: {
+    width: number;
+    height: number;
+  };
+}
