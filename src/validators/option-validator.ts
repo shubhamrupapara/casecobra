@@ -3,7 +3,7 @@
 // bg-rose-950 border-rose-950
 
 export const COLORS = [
-  { label: "Black", value: "black", tw: "zinc-900" },
+  { label: "Black", value: "black", tw: "zinc-950" },
   {
     label: "Blue",
     value: "blue",
