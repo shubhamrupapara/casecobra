@@ -350,7 +350,7 @@ const DesignConfigurator = ({
         <div className="w-full px-8 h-16 bg-white">
           <div className="h-px w-full bg-zinc-200" />
           <div className="w-full h-full flex justify-end items-center">
-            <div className="w-full flex gap-6 items-center">
+            <div className="w-full flex gap-6 items-center justify-end">
               <p className="font-medium whitespace-nowrap">
                 {formatPrice(
                   BASE_PRICE + options.finish.price + options.material.price
@@ -359,7 +359,7 @@ const DesignConfigurator = ({
               <Button
                 onClick={() => saveConfiguration()}
                 size="sm"
-                className="w-full"
+                className="w-full max-w-32"
               >
                 Continue
                 <ArrowRight className="h-4 w-4 ml-1.5 inline" />
