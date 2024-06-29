@@ -1,11 +1,11 @@
-// bg-zinc-950 border-zinc-950
 // bg-blue-950 border-blue-950
+// bg-zinc-900 border-zinc-900
 // bg-rose-950 border-rose-950
 
 import { PRODUCT_PRICES } from "../../constants";
 
 export const COLORS = [
-  { label: "Black", value: "black", tw: "zinc-950" },
+  { label: "Black", value: "black", tw: "zinc-900" },
   {
     label: "Blue",
     value: "blue",
@@ -35,7 +35,7 @@ export const MODELS = {
     },
     {
       label: "iPhone 14",
-      value: "iphone14o",
+      value: "iphone14",
     },
     {
       label: "iPhone 15",
@@ -51,13 +51,13 @@ export const MATERIALS = {
       label: "Silicone",
       value: "silicone",
       description: undefined,
-      price: PRODUCT_PRICES.matrial.silicone,
+      price: PRODUCT_PRICES.material.silicone,
     },
     {
       label: "Soft Polycarbonate",
       value: "polycarbonate",
-      description: "Scretch resistant coating",
-      price: PRODUCT_PRICES.matrial.polycarbonate,
+      description: "Scratch-resistant coating",
+      price: PRODUCT_PRICES.material.polycarbonate,
     },
   ],
 } as const;

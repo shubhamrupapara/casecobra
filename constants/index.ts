@@ -88,7 +88,7 @@ export const STEPS: IStepsItemsProps[] = [
 ];
 
 export const PRODUCT_PRICES = {
-  matrial: {
+  material: {
     silicone: 0,
     polycarbonate: 500,
   },

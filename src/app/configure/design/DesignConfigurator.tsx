@@ -4,7 +4,7 @@ import HandleComponent from "@/components/HandleComponent";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn, formatPrice } from "@/lib/utils";
-import { IDesignConfiguratorProps } from "@/types";
+import { IDesignConfiguratorProps, ISaveConfigProps } from "@/types";
 import Image from "next/image";
 import { Rnd } from "react-rnd";
 import { useRef, useState } from "react";
@@ -28,6 +28,9 @@ import { BASE_PRICE } from "../../../../constants";
 import base64ToBlob from "../../../../helper/base64ToBlob";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useToast } from "@/components/ui/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import { saveConfig as _saveConfig } from "./actions";
+import { useRouter } from "next/navigation";
 
 const DesignConfigurator = ({
   imageUrl,
@@ -35,6 +38,22 @@ const DesignConfigurator = ({
   imageDimensions,
 }: IDesignConfiguratorProps) => {
   const { toast } = useToast();
+  const router = useRouter();
+
+  const { mutate: saveConfig } = useMutation({
+    mutationKey: ["save-config"],
+    mutationFn: async (args: ISaveConfigProps) => {
+      await Promise.all([saveConfiguration(), _saveConfig(args)]);
+    },
+    onSuccess: () => router.push(`/configure/preview?id=${configId}`),
+    onError: () => {
+      toast({
+        title: "Something went wrong",
+        description: "There was an error at our end. please try again.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const [options, setOptions] = useState<{
     color: (typeof COLORS)[number];
@@ -357,7 +376,15 @@ const DesignConfigurator = ({
                 )}
               </p>
               <Button
-                onClick={() => saveConfiguration()}
+                onClick={() =>
+                  saveConfig({
+                    configId,
+                    color: options?.color?.value,
+                    finish: options?.finish?.value,
+                    material: options?.material?.value,
+                    model: options?.model?.value,
+                  })
+                }
                 size="sm"
                 className="w-full max-w-32"
               >

@@ -64,7 +64,7 @@ export interface IDesignConfiguratorProps {
 export interface ISaveConfigProps {
   color: CaseColor;
   finish: CaseFinish;
-  material: CaseMaterial;
   model: PhoneModel;
+  material: CaseMaterial;
   configId: string;
 }
