@@ -1,3 +1,9 @@
+import {
+  CaseColor,
+  CaseFinish,
+  CaseMaterial,
+  PhoneModel,
+} from "@prisma/client";
 import { HTMLAttributes } from "react";
 
 export interface IMaxWidthWrapperProps {
@@ -53,4 +59,12 @@ export interface IDesignConfiguratorProps {
     width: number;
     height: number;
   };
+}
+
+export interface ISaveConfigProps {
+  color: CaseColor;
+  finish: CaseFinish;
+  material: CaseMaterial;
+  model: PhoneModel;
+  configId: string;
 }
