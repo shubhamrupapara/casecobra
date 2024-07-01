@@ -68,3 +68,8 @@ export interface ISaveConfigProps {
   material: CaseMaterial;
   configId: string;
 }
+
+export interface IFinalPriceDetailProps {
+  label: string;
+  amount: number;
+}

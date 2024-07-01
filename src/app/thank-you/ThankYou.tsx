@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import PhonePreview from "@/components/PhonePreview";
 import { formatPrice } from "@/lib/utils";
+import { IFinalPriceDetailProps } from "@/types";
 
 const ThankYou = () => {
   const orderId = useSearchParams().get("orderId") || "";
@@ -41,6 +42,12 @@ const ThankYou = () => {
     );
   }
 
+  const priceDetailsArr: IFinalPriceDetailProps[] = [
+    { label: "Subtotal", amount: data?.amount },
+    { label: "Shipping", amount: 0 },
+    { label: "Total", amount: data?.amount },
+  ];
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
@@ -73,7 +80,10 @@ const ThankYou = () => {
         </div>
         {/* phone preview */}
         <div className="flex space-x-6 overflow-hidden mt-4 rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl">
-          <PhonePreview />
+          <PhonePreview
+            color={data?.configuration?.color!}
+            croppedImageUrl={data?.configuration?.croppedImageUrl!}
+          />
         </div>
         {/* order details */}
         <div>
@@ -121,18 +131,14 @@ const ThankYou = () => {
         </div>
         {/* subtotal */}
         <div className="space-y-6 border-t border-zinc-200 pt-10 text-sm">
-          <div className="flex justify-between">
-            <p className="font-medium text-zinc-900">Subtotal</p>
-            <p className="text-zinc-700">{formatPrice(data?.amount)}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-medium text-zinc-900">Shipping</p>
-            <p className="text-zinc-700">{formatPrice(0)}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-medium text-zinc-900">Total</p>
-            <p className="text-zinc-700">{formatPrice(data?.amount)}</p>
-          </div>
+          {priceDetailsArr.map(
+            (item: IFinalPriceDetailProps, index: number) => (
+              <div key={index} className="flex justify-between">
+                <p className="font-medium text-zinc-900">{item.label}</p>
+                <p className="text-zinc-700">{formatPrice(item.amount)}</p>
+              </div>
+            )
+          )}
         </div>
       </div>
     </div>
