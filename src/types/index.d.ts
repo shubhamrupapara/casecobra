@@ -73,3 +73,9 @@ export interface IFinalPriceDetailProps {
   label: string;
   amount: number;
 }
+
+export interface IGoalsProps {
+  title: string;
+  amount: number | null;
+  goal: number;
+}
