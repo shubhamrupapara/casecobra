@@ -11,7 +11,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Confetti from "react-dom-confetti";
-import { BASE_PRICE, PRODUCT_PRICES } from "../../../../constants";
+import { BASE_PRICE, PRODUCT_PRICES } from "../../constants";
 import { createCheckoutSession } from "./actions";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import LoginModal from "@/components/LoginModal";

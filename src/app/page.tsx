@@ -10,7 +10,7 @@ import {
   tagLines1Arr,
   tagLines2Arr,
   userImagesArr,
-} from "../../constants";
+} from "./constants";
 import { IReviewProps } from "@/types";
 import Reviews from "@/components/Reviews";
 

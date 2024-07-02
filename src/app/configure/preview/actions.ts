@@ -2,7 +2,7 @@
 
 import { db } from "@/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { BASE_PRICE, PRODUCT_PRICES } from "../../../../constants";
+import { BASE_PRICE, PRODUCT_PRICES } from "../../constants";
 import { Order } from "@prisma/client";
 import { stripe } from "@/lib/stripe";
 

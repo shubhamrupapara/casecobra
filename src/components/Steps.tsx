@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { STEPS } from "../../constants";
+import { STEPS } from "../app/constants";
 import { IStepsItemsProps } from "@/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";

@@ -24,8 +24,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ChevronsUpDown } from "lucide-react";
-import { BASE_PRICE } from "../../../../constants";
-import base64ToBlob from "../../../../helper/base64ToBlob";
+import { BASE_PRICE } from "../../constants";
+import base64ToBlob from "../../constants/helper/base64ToBlob";
 import { useUploadThing } from "@/lib/uploadthing";
 import { useToast } from "@/components/ui/use-toast";
 import { useMutation } from "@tanstack/react-query";

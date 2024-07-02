@@ -12,7 +12,7 @@ import { OrderStatus } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { LABEL_MAP } from "../../../constants";
+import { LABEL_MAP } from "../constants";
 import { changeOrderStatus } from "./actions";
 
 const StatusDropdown = ({
