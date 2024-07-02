@@ -1,4 +1,5 @@
 import { IFooterItemsProps, IReviewProps, IStepsItemsProps } from "@/types";
+import { OrderStatus } from "@prisma/client";
 
 export const userImagesArr: string[] = [
   "user-1.png",
@@ -99,3 +100,9 @@ export const PRODUCT_PRICES = {
 } as const;
 
 export const BASE_PRICE = 1400;
+
+export const LABEL_MAP: Record<keyof typeof OrderStatus, string> = {
+  awaiting_shipment: "Awaiting Shipment",
+  fulfilled: "Fulfilled",
+  shipped: "Shipped",
+};
