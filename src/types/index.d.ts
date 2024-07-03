@@ -79,3 +79,10 @@ export interface IGoalsProps {
   amount: number | null;
   goal: number;
 }
+
+export interface IMetadataProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  icons?: string;
+}

@@ -1,10 +1,13 @@
 "use client";
 
+import LoginModal from "@/components/LoginModal";
 import Phone from "@/components/Phone";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { formatPrice } from "@/lib/utils";
+import { BASE_PRICE, PRODUCT_PRICES } from "@/constants";
+import { cn, formatPrice } from "@/lib/utils";
 import { COLORS, MODELS } from "@/validators/option-validator";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { Configuration } from "@prisma/client";
 import { useMutation } from "@tanstack/react-query";
 import { ArrowRight, Check } from "lucide-react";
@@ -12,9 +15,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Confetti from "react-dom-confetti";
 import { createCheckoutSession } from "./actions";
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import LoginModal from "@/components/LoginModal";
-import { BASE_PRICE, PRODUCT_PRICES } from "@/constants";
 
 const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
   const router = useRouter();
@@ -79,11 +79,14 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
       </div>
       <LoginModal isOpen={isLoginModalOpen} setIsOpen={setIsLoginModalOpen} />
       {/* preview config in phone */}
-      <div className="mt-12 grid grid-cols-1 text-sm sm:grid-cols-12 sm:grid-rows-1 sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
-        <div className="sm:col-span-4 md:col-span-3 md:row-span-2 md:row-end-2">
+      <div className="mt-12 flex flex-col items-center md:grid text-sm sm:grid-cols-12 sm:grid-rows-1 sm:gap-x-6 md:gap-x-8 lg:gap-x-12">
+        <div className="md:col-span-4 lg:col-span-3 md:row-span-2 md:row-end-2">
           {/* here we have put ! to tell typescript that croppedImageUrl is not null */}
           <Phone
-            className={`bg-${tw}`}
+            className={cn(
+              `bg-${tw}`,
+              "max-w-[150px] md:max-w-full md:-translate-y-4"
+            )}
             imgSrc={configuration.croppedImageUrl!}
           />
         </div>
@@ -117,48 +120,46 @@ const DesignPreview = ({ configuration }: { configuration: Configuration }) => {
             </div>
           </div>
           {/* price & checkout */}
-          <div className="mt-8">
-            <div className="bg-gray-50 p-6 sm:rounded-lg sm:p-8">
-              <div className="flow-root text-sm">
+          <div className="bg-gray-50 p-6 sm:rounded-lg sm:p-8">
+            <div className="flow-root text-sm">
+              <div className="flex items-center justify-between py-1 mt-2">
+                <p className="text-gray-600">Base price</p>
+                <p className="font-medium text-gray-900">
+                  {formatPrice(BASE_PRICE)}
+                </p>
+              </div>
+              {configuration?.finish === "textured" ? (
                 <div className="flex items-center justify-between py-1 mt-2">
-                  <p className="text-gray-600">Base price</p>
+                  <p className="text-gray-600">Textured finish</p>
                   <p className="font-medium text-gray-900">
-                    {formatPrice(BASE_PRICE)}
+                    {formatPrice(PRODUCT_PRICES?.finish.textured)}
                   </p>
                 </div>
-                {configuration?.finish === "textured" ? (
-                  <div className="flex items-center justify-between py-1 mt-2">
-                    <p className="text-gray-600">Textured finish</p>
-                    <p className="font-medium text-gray-900">
-                      {formatPrice(PRODUCT_PRICES?.finish.textured)}
-                    </p>
-                  </div>
-                ) : null}
-                {configuration?.material === "polycarbonate" ? (
-                  <div className="flex items-center justify-between py-1 mt-2">
-                    <p className="text-gray-600">Soft polycarbonate material</p>
-                    <p className="font-medium text-gray-900">
-                      {formatPrice(PRODUCT_PRICES?.material?.polycarbonate)}
-                    </p>
-                  </div>
-                ) : null}
-                <div className="my-2 h-px bg-gray-200" />
-                <div className="flex items-center justify-between py-2">
-                  <p className="font-semibold text-gray-900">Order total</p>
-                  <p className="font-semibold text-gray-900">
-                    {formatPrice(totalPrice)}
+              ) : null}
+              {configuration?.material === "polycarbonate" ? (
+                <div className="flex items-center justify-between py-1 mt-2">
+                  <p className="text-gray-600">Soft polycarbonate material</p>
+                  <p className="font-medium text-gray-900">
+                    {formatPrice(PRODUCT_PRICES?.material?.polycarbonate)}
                   </p>
                 </div>
+              ) : null}
+              <div className="my-2 h-px bg-gray-200" />
+              <div className="flex items-center justify-between py-2">
+                <p className="font-semibold text-gray-900">Order total</p>
+                <p className="font-semibold text-gray-900">
+                  {formatPrice(totalPrice)}
+                </p>
               </div>
             </div>
-            <div className="mt-8 flex justify-end pb-12">
-              <Button
-                onClick={() => handleCheckout()}
-                className="px-4 sm:px-6 lg:px-8"
-              >
-                Check out <ArrowRight className="h-4 w-4 ml-1.5 inline" />
-              </Button>
-            </div>
+          </div>
+          <div className="mt-8 flex justify-end pb-12">
+            <Button
+              onClick={() => handleCheckout()}
+              className="px-4 sm:px-6 lg:px-8"
+            >
+              Check out <ArrowRight className="h-4 w-4 ml-1.5 inline" />
+            </Button>
           </div>
         </div>
       </div>
