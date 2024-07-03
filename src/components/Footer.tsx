@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { footerItemsArr } from "../app/constants";
 import { IFooterItemsProps } from "@/types";
+import { footerItemsArr } from "@/constants";
 
 const Footer = () => {
   return (

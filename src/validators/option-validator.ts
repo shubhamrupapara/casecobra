@@ -2,7 +2,7 @@
 // bg-zinc-900 border-zinc-900
 // bg-rose-950 border-rose-950
 
-import { PRODUCT_PRICES } from "../app/constants";
+import { PRODUCT_PRICES } from "@/constants";
 
 export const COLORS = [
   { label: "Black", value: "black", tw: "zinc-900" },

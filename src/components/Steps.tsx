@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { STEPS } from "../app/constants";
 import { IStepsItemsProps } from "@/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { STEPS } from "@/constants";
 
 const Steps = () => {
   const pathname = usePathname();

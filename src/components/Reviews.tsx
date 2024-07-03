@@ -4,10 +4,10 @@ import { cn } from "@/lib/utils";
 import { IReviewColumnProps, IReviewsProps } from "@/types";
 import { useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { POSSIBLE_ANIMATION_DELAYS, phonesImageArr } from "../app/constants";
-import splitArray from "../app/constants/helper/splitArray";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import Phone from "./Phone";
+import { POSSIBLE_ANIMATION_DELAYS, phonesImageArr } from "@/constants";
+import splitArray from "@/helper/splitArray";
 
 const ReviewColumn: React.FC<IReviewColumnProps> = ({
   reviews,

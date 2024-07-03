@@ -5,14 +5,14 @@ import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight, Check, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { IReviewProps } from "@/types";
+import Reviews from "@/components/Reviews";
 import {
   reviewsArr,
   tagLines1Arr,
   tagLines2Arr,
   userImagesArr,
-} from "./constants";
-import { IReviewProps } from "@/types";
-import Reviews from "@/components/Reviews";
+} from "@/constants";
 
 export default function Home() {
   return (
